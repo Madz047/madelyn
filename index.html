@@ -1,1 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Madelyn G. Combalicer — Finance &amp; Operations · Research, Analysis &amp; Business Systems</title>
+<meta name="description" content="Finance and operations professional specializing in research, data analysis, business systems, process improvement, documentation, and dashboard development. 10+ years of remote work with international organizations.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,500;1,700&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2c211b;
+    --ink-soft:#5a4a40;
+    --terra:#b65c38;
+    --terra-deep:#9a4a2c;
+    --label:#8f4327;            /* darker terra for small text — AA contrast on linen */
+    --sand:#c9b391;
+    --sand-line:#dccbac;
+    --linen:#f4eee2;
+    --cream:#fbf7ef;
+    --deep:#20180f;
+    --deep-soft:#cdbfa9;
+    --maxw:1120px;
+    --r:16px;
+  }
 
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    *{animation:none !important;transition:none !important}
+  }
+
+  body{
+    background:var(--linen);
+    color:var(--ink);
+    font-family:'Outfit',system-ui,sans-serif;
+    font-weight:300;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+  .mono{
+    font-family:'JetBrains Mono',monospace;
+    font-weight:400;
+    text-transform:uppercase;
+    letter-spacing:0.14em;
+    font-size:0.72rem;
+  }
+
+  a{color:inherit}
+  img{max-width:100%;display:block}
+
+  .skiplink{position:absolute;left:-9999px;top:0;background:var(--ink);color:var(--cream);padding:12px 18px;border-radius:0 0 8px 0;z-index:100}
+  .skiplink:focus{left:0}
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(244,238,226,0.86);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--sand-line);
+  }
+  .nav-inner{
+    max-width:var(--maxw);margin:0 auto;padding:16px 24px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .brand{font-family:'Playfair Display',serif;font-weight:700;font-size:1.15rem;letter-spacing:0.01em;text-decoration:none}
+  .brand b{color:var(--terra)}
+  .nav-links{display:flex;gap:26px}
+  .nav-links a{
+    font-family:'JetBrains Mono',monospace;font-size:0.7rem;
+    text-transform:uppercase;letter-spacing:0.12em;text-decoration:none;
+    color:var(--ink-soft);transition:color .2s;
+  }
+  .nav-links a:hover{color:var(--terra-deep)}
+  @media(max-width:820px){.nav-links{display:none}}
+
+  /* ---------- HERO ---------- */
+  header.hero{padding:92px 0 64px}
+  .hero .eyebrow{color:var(--label);margin-bottom:26px}
+  .hero h1{
+    font-family:'Playfair Display',serif;
+    font-weight:900;
+    font-size:clamp(2.3rem,5.6vw,4.2rem);
+    line-height:1.05;
+    letter-spacing:-0.015em;
+    max-width:18ch;
+    margin-bottom:26px;
+  }
+  .hero h1 em{font-style:italic;color:var(--terra-deep);font-weight:700}
+  .hero-sub{
+    font-size:clamp(1.04rem,1.9vw,1.2rem);
+    color:var(--ink-soft);max-width:62ch;font-weight:300;margin-bottom:34px;
+  }
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:44px}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    font-family:'JetBrains Mono',monospace;font-size:0.74rem;
+    text-transform:uppercase;letter-spacing:0.1em;text-decoration:none;
+    padding:14px 24px;border-radius:100px;transition:transform .18s, background .2s, color .2s, border-color .2s;
+  }
+  .btn-primary{background:var(--terra-deep);color:var(--cream)}
+  .btn-primary:hover{background:var(--ink);transform:translateY(-2px)}
+  .btn-ghost{border:1px solid var(--sand);color:var(--ink)}
+  .btn-ghost:hover{border-color:var(--terra-deep);color:var(--terra-deep);transform:translateY(-2px)}
+
+  .credline{
+    border-top:1px solid var(--sand-line);
+    padding-top:20px;
+    display:flex;gap:10px 26px;flex-wrap:wrap;align-items:center;
+    color:var(--ink-soft);
+  }
+  .credline .dot{width:7px;height:7px;border-radius:50%;background:#5b9a5b;display:inline-block;margin-right:8px;vertical-align:middle}
+  .credline b{color:var(--ink);font-weight:500}
+
+  /* ---------- SECTION SCAFFOLD ---------- */
+  section{padding:78px 0}
+  .sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:44px;border-bottom:1px solid var(--sand-line);padding-bottom:18px}
+  .sec-head .idx{color:var(--label)}
+  .sec-head h2{font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(1.6rem,3.4vw,2.3rem);letter-spacing:-0.01em}
+  .sec-intro{color:var(--ink-soft);max-width:60ch;margin:-24px 0 40px;font-size:1.05rem}
+
+  /* ---------- HIGHLIGHTS ---------- */
+  #highlights{padding-top:8px}
+  .stat-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
+  @media(max-width:900px){.stat-grid{grid-template-columns:repeat(3,1fr)}}
+  @media(max-width:560px){.stat-grid{grid-template-columns:repeat(2,1fr)}}
+  .stat{
+    background:var(--cream);border:1px solid var(--sand-line);border-radius:var(--r);
+    padding:24px 18px;text-align:center;
+  }
+  .stat .big{font-family:'Playfair Display',serif;font-weight:900;font-size:1.9rem;line-height:1;color:var(--terra-deep);margin-bottom:10px}
+  .stat .lab{font-family:'JetBrains Mono',monospace;font-size:0.6rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-soft);line-height:1.5}
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{display:grid;grid-template-columns:1.55fr 1fr;gap:52px}
+  @media(max-width:820px){.about-grid{grid-template-columns:1fr;gap:32px}}
+  .about p{font-size:1.08rem;color:var(--ink-soft);margin-bottom:18px;max-width:62ch}
+  .about p strong{color:var(--ink);font-weight:500}
+  .callout{
+    background:var(--ink);color:var(--linen);border-radius:var(--r);padding:30px;height:fit-content;
+  }
+  .callout .mono{color:var(--terra);display:block;margin-bottom:16px}
+  .callout p{font-family:'Playfair Display',serif;font-style:italic;font-size:1.35rem;line-height:1.4;color:var(--linen)}
+
+  /* ---------- EXPERTISE PILLARS ---------- */
+  #expertise{background:var(--cream);border-top:1px solid var(--sand-line);border-bottom:1px solid var(--sand-line)}
+  .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  @media(max-width:880px){.pillars{grid-template-columns:1fr 1fr}}
+  @media(max-width:560px){.pillars{grid-template-columns:1fr}}
+  .pillar{background:var(--linen);border:1px solid var(--sand-line);border-radius:var(--r);padding:26px}
+  .pillar h3{font-family:'Playfair Display',serif;font-weight:700;font-size:1.32rem;margin-bottom:6px}
+  .pillar .pk{font-family:'JetBrains Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--label);display:block;margin-bottom:14px}
+  .pchips{display:flex;flex-wrap:wrap;gap:7px}
+  .pchip{background:var(--cream);border:1px solid var(--sand-line);border-radius:100px;padding:6px 12px;font-size:0.82rem;color:var(--ink)}
+
+  /* ---------- PROBLEMS ---------- */
+  .prob-list{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  @media(max-width:820px){.prob-list{grid-template-columns:1fr}}
+  .prob{display:grid;grid-template-columns:auto 1fr;gap:18px;padding:22px;background:var(--cream);border:1px solid var(--sand-line);border-radius:var(--r)}
+  .prob .mk{font-family:'Playfair Display',serif;font-weight:900;font-size:1.4rem;color:var(--terra-deep);line-height:1}
+  .prob h4{font-size:1.02rem;font-weight:500;color:var(--ink);margin-bottom:7px}
+  .prob p{font-size:0.94rem;color:var(--ink-soft)}
+  .prob p .out{color:var(--terra-deep);font-weight:500}
+
+  /* ---------- WORK ---------- */
+  #work{background:var(--deep);color:var(--linen)}
+  #work .sec-head{border-color:rgba(205,191,169,0.22)}
+  #work .sec-head h2,#work .sec-head .idx{color:var(--linen)}
+  #work .sec-head .idx{color:var(--terra)}
+  #work .sec-intro{color:var(--deep-soft)}
+
+  .featured{
+    background:linear-gradient(180deg,#2a2015,#20180f);
+    border:1px solid rgba(205,191,169,0.22);border-radius:var(--r);
+    padding:34px;margin-bottom:24px;
+    display:grid;grid-template-columns:1.1fr 1fr;gap:36px;
+  }
+  @media(max-width:820px){.featured{grid-template-columns:1fr;gap:24px}}
+  .featured .ftag{font-family:'JetBrains Mono',monospace;font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--terra);margin-bottom:14px;display:block}
+  .featured h3{font-family:'Playfair Display',serif;font-weight:700;font-size:1.9rem;line-height:1.1;margin-bottom:14px;color:var(--linen)}
+  .featured .lede{color:var(--deep-soft);margin-bottom:22px}
+  .fcase{display:grid;gap:16px}
+  .fcase .row .k{font-family:'JetBrains Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--terra);margin-bottom:5px}
+  .fcase .row .v{font-size:0.96rem;color:var(--linen)}
+  .fcase .row .v.soft{color:var(--deep-soft)}
+
+  .work-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  @media(max-width:820px){.work-grid{grid-template-columns:1fr}}
+  .card{
+    background:#291f15;border:1px solid rgba(205,191,169,0.2);border-radius:var(--r);
+    padding:26px;display:flex;flex-direction:column;
+    transition:transform .2s, border-color .2s;
+  }
+  .card:hover{transform:translateY(-4px);border-color:var(--terra)}
+  .card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:14px}
+  .card h3{font-family:'Playfair Display',serif;font-weight:700;font-size:1.3rem;line-height:1.15;color:var(--linen)}
+  .tag{font-family:'JetBrains Mono',monospace;font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--terra);border:1px solid rgba(205,191,169,0.3);border-radius:100px;padding:5px 10px;white-space:nowrap}
+  .card .lede{color:var(--deep-soft);font-size:0.96rem;margin-bottom:18px;flex-grow:1}
+  .mini{border-top:1px solid rgba(205,191,169,0.18);padding-top:14px;display:grid;gap:8px}
+  .mini .row{display:grid;grid-template-columns:78px 1fr;gap:12px;align-items:baseline}
+  .mini .row .k{font-family:'JetBrains Mono',monospace;font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--terra)}
+  .mini .row .v{font-size:0.86rem;color:var(--linen)}
+  .shipped{margin-top:30px;display:flex;gap:10px 18px;flex-wrap:wrap;align-items:center;color:var(--deep-soft);font-size:0.9rem}
+  .shipped a{font-family:'JetBrains Mono',monospace;font-size:0.7rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--terra);text-decoration:none;border-bottom:1px solid rgba(182,92,56,0.4);padding-bottom:2px;transition:color .2s}
+  .shipped a:hover{color:var(--linen)}
+
+  /* ---------- APPROACH ---------- */
+  .flow{display:flex;flex-wrap:wrap;gap:10px;align-items:stretch}
+  .step{flex:1 1 130px;background:var(--cream);border:1px solid var(--sand-line);border-radius:var(--r);padding:20px 18px;position:relative}
+  .step .n{font-family:'JetBrains Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;color:var(--label);display:block;margin-bottom:10px}
+  .step h4{font-family:'Playfair Display',serif;font-weight:700;font-size:1.12rem;margin-bottom:6px}
+  .step p{font-size:0.85rem;color:var(--ink-soft)}
+
+  /* ---------- EXPERIENCE ---------- */
+  .xp-grid{display:grid;gap:18px}
+  .xp{
+    display:grid;grid-template-columns:230px 1fr;gap:32px;
+    background:var(--cream);border:1px solid var(--sand-line);border-radius:var(--r);padding:28px;
+  }
+  @media(max-width:760px){.xp{grid-template-columns:1fr;gap:14px}}
+  .xp-when{font-family:'JetBrains Mono',monospace;font-size:0.68rem;letter-spacing:0.06em;color:var(--label)}
+  .xp h3{font-family:'Playfair Display',serif;font-weight:700;font-size:1.32rem;margin-bottom:3px;margin-top:8px}
+  .xp .role{color:var(--ink-soft);font-size:0.92rem;margin-bottom:0}
+  .xp ul{list-style:none;display:grid;gap:8px;margin-bottom:14px}
+  .xp li{position:relative;padding-left:20px;font-size:0.96rem;color:var(--ink-soft)}
+  .xp li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:var(--terra)}
+  .xp .impact{font-size:0.9rem;color:var(--ink);border-left:2px solid var(--terra);padding-left:14px}
+  .xp .impact b{font-family:'JetBrains Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--label);display:block;margin-bottom:4px;font-weight:400}
+
+  /* ---------- RESEARCH & ANALYSIS ---------- */
+  .ra-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  @media(max-width:820px){.ra-grid{grid-template-columns:1fr}}
+  .racard{background:var(--cream);border:1px solid var(--sand-line);border-radius:var(--r);padding:28px;display:flex;flex-direction:column}
+  .racard .org{font-family:'JetBrains Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--label);display:block;margin-bottom:12px}
+  .racard h3{font-family:'Playfair Display',serif;font-weight:700;font-size:1.3rem;line-height:1.15;margin-bottom:18px}
+  .racard .rspec{display:grid;gap:13px;margin-bottom:18px}
+  .racard .rrow .k{font-family:'JetBrains Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--label);margin-bottom:4px}
+  .racard .rrow .v{font-size:0.94rem;color:var(--ink-soft)}
+  .racard .rrow .v.out{color:var(--ink);font-weight:400}
+  .racard .rskills{margin-top:auto;border-top:1px solid var(--sand-line);padding-top:14px;font-family:'JetBrains Mono',monospace;font-size:0.62rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--terra-deep)}
+
+  /* ---------- EDUCATION ---------- */
+  #education{background:var(--cream);border-top:1px solid var(--sand-line);border-bottom:1px solid var(--sand-line)}
+  .edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+  @media(max-width:760px){.edu-grid{grid-template-columns:1fr;gap:28px}}
+  .edu-col h3{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--label);margin-bottom:18px}
+  .edu-item{padding:14px 0;border-bottom:1px dashed var(--sand-line)}
+  .edu-item:last-child{border-bottom:none}
+  .edu-item .t{font-family:'Playfair Display',serif;font-weight:700;font-size:1.1rem;margin-bottom:2px}
+  .edu-item .s{font-size:0.9rem;color:var(--ink-soft)}
+  .tools{margin-top:30px}
+  .tools h3{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--label);margin-bottom:14px}
+  .tchips{display:flex;flex-wrap:wrap;gap:8px}
+  .tchip{background:var(--linen);border:1px solid var(--sand-line);border-radius:100px;padding:6px 13px;font-size:0.82rem;color:var(--ink)}
+
+  /* ---------- TESTIMONIALS ---------- */
+  .testi-note{font-family:'JetBrains Mono',monospace;font-size:0.62rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--label);margin:-24px 0 34px}
+  .testi-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  @media(max-width:760px){.testi-grid{grid-template-columns:1fr}}
+  .testi{background:var(--cream);border:1px solid var(--sand-line);border-radius:var(--r);padding:30px}
+  .testi .q{font-family:'Playfair Display',serif;font-style:italic;font-size:1.18rem;line-height:1.5;color:var(--ink);margin-bottom:20px}
+  .testi .by{font-family:'JetBrains Mono',monospace;font-size:0.66rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-soft)}
+  .testi .by .nm{color:var(--terra-deep)}
+
+  /* ---------- CONTACT ---------- */
+  #contact{background:var(--terra-deep);color:var(--cream)}
+  .contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  @media(max-width:760px){.contact-inner{grid-template-columns:1fr;gap:28px}}
+  #contact .eyebrow{color:rgba(251,247,239,0.82)}
+  #contact h2{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(2rem,4.5vw,3rem);line-height:1.06;margin:14px 0 18px}
+  #contact p{color:rgba(251,247,239,0.92);max-width:44ch;font-size:1.05rem}
+  .contact-list{display:grid;gap:12px}
+  .contact-row{
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+    background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.24);
+    border-radius:100px;padding:15px 24px;text-decoration:none;
+    font-family:'JetBrains Mono',monospace;font-size:0.76rem;letter-spacing:0.04em;
+    color:var(--cream);transition:background .2s, transform .18s;
+  }
+  .contact-row:hover{background:rgba(255,255,255,0.2);transform:translateX(4px)}
+  .contact-row .arrow{font-size:1rem}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--deep);color:var(--deep-soft);padding:44px 0;text-align:center}
+  footer .brand{color:var(--cream);font-size:1.05rem;margin-bottom:8px;display:inline-block}
+  footer .ftnav{display:flex;gap:10px 24px;justify-content:center;flex-wrap:wrap;margin:16px 0 18px}
+  footer .ftnav a{font-family:'JetBrains Mono',monospace;font-size:0.74rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream);text-decoration:none;padding:4px 2px;transition:color .2s}
+  footer .ftnav a:hover{color:var(--terra)}
+  footer p{font-family:'JetBrains Mono',monospace;font-size:0.62rem;letter-spacing:0.08em;text-transform:uppercase}
+
+  /* ---------- REVEAL ---------- */
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease, transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  :focus-visible{outline:2px solid var(--terra-deep);outline-offset:3px;border-radius:4px}
+</style>
+</head>
+<body>
+
+<a href="#main" class="skiplink">Skip to content</a>
+
+<nav aria-label="Primary">
+  <div class="nav-inner">
+    <a href="#main" class="brand">Madelyn <b>G.</b> Combalicer</a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#expertise">Expertise</a>
+      <a href="#work">Work</a>
+      <a href="#research">Research</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow mono">Research · Analysis · Finance &amp; Operations · Systems · Documentation</p>
+    <h1>I turn complex business information into <em>systems, structure, and clarity</em> people can rely on.</h1>
+    <p class="hero-sub">A finance and operations professional with 10+ years across research, data validation, accounting, and process design. I research the problem, analyze the data, organize the knowledge, and build the systems and documentation that keep a business accurate — from bookkeeping workflows and inventory controls to dashboards that replace hours of manual reporting.</p>
+    <div class="cta-row">
+      <a href="#work" class="btn btn-primary">Explore my work →</a>
+      <a href="#contact" class="btn btn-ghost">Get in touch</a>
+    </div>
+    <p class="credline mono">
+      <span><span class="dot"></span><b>Open to remote roles &amp; collaboration</b></span>
+      <span>10+ YRS EXPERIENCE</span>
+      <span>MBA</span>
+      <span>INTERNATIONAL REMOTE COLLABORATION</span>
+    </p>
+  </div>
+</header>
+
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head"><span class="idx mono">01</span><h2>About</h2></div>
+    <div class="about-grid reveal">
+      <div class="about">
+        <p>For over a decade I've worked across <strong>accounting, payroll, research, data validation, and operations</strong> — first inside government finance offices, then remotely with international organizations, and now building the business tools I once wished existed.</p>
+        <p>I work with <strong>small and growing businesses, founders, and finance and operations teams</strong> who are held back by the same recurring problems: numbers scattered across files, manual tracking that eats hours, and critical knowledge trapped inside one person's head.</p>
+        <p>My background is multidisciplinary by design. I'm equally comfortable <strong>verifying records against regulatory sources, reconciling financial data, mapping a workflow, writing the SOP, and building the spreadsheet or dashboard</strong> that makes it all run. Strategic thinking and practical execution, in the same person.</p>
+      </div>
+      <aside class="callout">
+        <span class="mono">How I work</span>
+        <p>"I don't just point out what to fix. I research it, analyze it, organize it, document it — and build the system that solves it."</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section id="expertise">
+  <div class="wrap">
+    <div class="sec-head"><span class="idx mono">02</span><h2>Core expertise</h2></div>
+    <p class="sec-intro">Five pillars that work together — research feeds analysis, analysis shapes systems, systems get documented, and the right parts get automated.</p>
+    <div class="pillars reveal">
+      <div class="pillar">
+        <span class="pk">Pillar 01</span>
+        <h3>Research</h3>
+        <div class="pchips">
+          <span class="pchip">Business research</span>
+          <span class="pchip">Regulatory verification</span>
+          <span class="pchip">Due diligence</span>
+          <span class="pchip">Competitive research</span>
+          <span class="pchip">Information verification</span>
+        </div>
+      </div>
+      <div class="pillar">
+        <span class="pk">Pillar 02</span>
+        <h3>Analysis</h3>
+        <div class="pchips">
+          <span class="pchip">Data analysis</span>
+          <span class="pchip">Financial analysis</span>
+          <span class="pchip">Reporting &amp; KPIs</span>
+          <span class="pchip">Decision support</span>
+          <span class="pchip">Quality assurance</span>
+        </div>
+      </div>
+      <div class="pillar">
+        <span class="pk">Pillar 03</span>
+        <h3>Systems</h3>
+        <div class="pchips">
+          <span class="pchip">Finance operations</span>
+          <span class="pchip">Workflow design</span>
+          <span class="pchip">Process improvement</span>
+          <span class="pchip">Inventory management</span>
+          <span class="pchip">Internal controls</span>
+        </div>
+      </div>
+      <div class="pillar">
+        <span class="pk">Pillar 04</span>
+        <h3>Documentation</h3>
+        <div class="pchips">
+          <span class="pchip">SOPs</span>
+          <span class="pchip">User guides</span>
+          <span class="pchip">Process documentation</span>
+          <span class="pchip">Knowledge management</span>
+          <span class="pchip">Technical writing</span>
+        </div>
+      </div>
+      <div class="pillar">
+        <span class="pk">Pillar 05</span>
+        <h3>Automation</h3>
+        <div class="pchips">
+          <span class="pchip">Excel solutions</span>
+          <span class="pchip">Google Sheets</span>
+          <span class="pchip">Dashboards</span>
+          <span class="pchip">Reporting automation</span>
+          <span class="pchip">Business templates</span>
+        </div>
+      </div>
+      <div class="pillar">
+        <span class="pk">How it shows up</span>
+        <h3>In practice</h3>
+        <div class="pchips">
+          <span class="pchip">Critical thinking</span>
+          <span class="pchip">Attention to detail</span>
+          <span class="pchip">Cross-functional</span>
+          <span class="pchip">Self-directed</span>
+          <span class="pchip">English / Filipino</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="problems">
+  <div class="wrap">
+    <div class="sec-head"><span class="idx mono">03</span><h2>Problems I solve</h2></div>
+    <div class="prob-list reveal">
+      <div class="prob">
+        <div class="mk">01</div>
+        <div>
+          <h4>Your bookkeeping depends on one person.</h4>
+          <p>I build finance systems with clear, repeatable steps so the work survives turnover. <span class="out">Outcome: consistency and accuracy that don't rely on a single individual.</span></p>
+        </div>
+      </div>
+      <div class="prob">
+        <div class="mk">02</div>
+        <div>
+          <h4>Inventory never matches actual stock.</h4>
+          <p>I design reconciliation systems that flag discrepancies between records and reality. <span class="out">Outcome: accurate stock levels and earlier, smarter reordering.</span></p>
+        </div>
+      </div>
+      <div class="prob">
+        <div class="mk">03</div>
+        <div>
+          <h4>Reporting takes hours of manual work.</h4>
+          <p>I build dashboards that pull the numbers together automatically. <span class="out">Outcome: instant visibility instead of end-of-month scrambles.</span></p>
+        </div>
+      </div>
+      <div class="prob">
+        <div class="mk">04</div>
+        <div>
+          <h4>Processes live only in someone's head.</h4>
+          <p>I document workflows and write SOPs people actually follow. <span class="out">Outcome: knowledge that's captured, shareable, and trainable.</span></p>
+        </div>
+      </div>
+      <div class="prob">
+        <div class="mk">05</div>
+        <div>
+          <h4>Data is messy and can't be trusted.</h4>
+          <p>I validate records against authoritative sources and resolve duplicates and errors. <span class="out">Outcome: clean data that supports confident decisions.</span></p>
+        </div>
+      </div>
+      <div class="prob">
+        <div class="mk">06</div>
+        <div>
+          <h4>Spreadsheets are fragile and hard to maintain.</h4>
+          <p>I rebuild them with sound formula logic, structure, and documentation. <span class="out">Outcome: tools that hold up instead of breaking on the next edit.</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head"><span class="idx mono">04</span><h2>Selected work</h2></div>
+    <p class="sec-intro">A portfolio of finance and operations tools — each researched, built, documented, and shipped end to end.</p>
+
+    <article class="featured reveal">
+      <div>
+        <span class="ftag">Featured project</span>
+        <h3>Inventory &amp; Stock Management System</h3>
+        <p class="lede">A retail business couldn't trust its stock counts — what the system showed and what was on the shelf rarely agreed, so shrinkage and ordering errors went unnoticed until they became expensive.</p>
+        <a href="#contact" class="btn btn-ghost" style="border-color:rgba(205,191,169,0.4);color:var(--linen)">Discuss a similar project</a>
+      </div>
+      <div class="fcase">
+        <div class="row"><div class="k">Objective</div><div class="v">Make recorded stock match physical stock, reliably.</div></div>
+        <div class="row"><div class="k">Approach</div><div class="v soft">Mapped the stock-to-sales flow, then built an Excel control system that reconciles inventory against sales and surfaces POS-to-inventory discrepancies automatically.</div></div>
+        <div class="row"><div class="k">Outcome</div><div class="v">Discrepancies became visible as they happened; reordering and stock accuracy turned into routine instead of guesswork.</div></div>
+        <div class="row"><div class="k">Skills</div><div class="v soft">Operations · Data validation · Systems design · Advanced Excel</div></div>
+      </div>
+    </article>
+
+    <div class="work-grid">
+
+      <article class="card reveal">
+        <div class="card-top"><h3>BIR Tax &amp; Compliance Tracker</h3><span class="tag">Finance</span></div>
+        <p class="lede">Keeps small businesses ahead of tax obligations and compliance requirements — deadlines, filings, and records in one structured place instead of scattered notes.</p>
+        <div class="mini">
+          <div class="row"><div class="k">Problem</div><div class="v">Missed deadlines and disorganized records.</div></div>
+          <div class="row"><div class="k">Impact</div><div class="v">Compliance tracked on a schedule, not from memory.</div></div>
+          <div class="row"><div class="k">Built with</div><div class="v">Excel + browser app</div></div>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-top"><h3>Online Seller Bookkeeping Ledger</h3><span class="tag">Bookkeeping</span></div>
+        <p class="lede">A plain-language ledger for sellers who aren't accountants — income, expenses, and profit tracked cleanly enough to trust at tax time.</p>
+        <div class="mini">
+          <div class="row"><div class="k">Problem</div><div class="v">Numbers no one could rely on.</div></div>
+          <div class="row"><div class="k">Impact</div><div class="v">Clear, repeatable bookkeeping anyone can follow.</div></div>
+          <div class="row"><div class="k">Built with</div><div class="v">Multi-sheet Excel + browser app</div></div>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-top"><h3>Pricing Intelligence Platform</h3><span class="tag">Analysis</span></div>
+        <p class="lede">Turns pricing guesswork into a decision — costs, margins, and market position run through a scoring system so an owner knows whether a price actually works.</p>
+        <div class="mini">
+          <div class="row"><div class="k">Problem</div><div class="v">Prices set on gut feel.</div></div>
+          <div class="row"><div class="k">Impact</div><div class="v">Pricing backed by analysis and clear scores.</div></div>
+          <div class="row"><div class="k">Built with</div><div class="v">HTML/JS + Excel, scoring models</div></div>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-top"><h3>Madelara Finance System</h3><span class="tag">Build</span></div>
+        <p class="lede">A full finance web app built from scratch — general ledger, credit-card tracker with billing-cycle logic, loan and installment tracking — running in the browser with no backend.</p>
+        <div class="mini">
+          <div class="row"><div class="k">Problem</div><div class="v">No single place to manage finances.</div></div>
+          <div class="row"><div class="k">Impact</div><div class="v">One tool, 30+ iterations, complex logic that holds.</div></div>
+          <div class="row"><div class="k">Built with</div><div class="v">HTML, JavaScript, localStorage</div></div>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-top"><h3>Cash Flow Toolkit</h3><span class="tag">Finance</span></div>
+        <p class="lede">A family of cash-flow planners and a simulator — basic to advanced — that let a business see what's coming before it arrives, in both browser and spreadsheet form.</p>
+        <div class="mini">
+          <div class="row"><div class="k">Problem</div><div class="v">No visibility into future cash position.</div></div>
+          <div class="row"><div class="k">Impact</div><div class="v">Forward view that supports better timing.</div></div>
+          <div class="row"><div class="k">Built with</div><div class="v">Excel + browser apps</div></div>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-top"><h3>Business Documentation Suite</h3><span class="tag">Documentation</span></div>
+        <p class="lede">Buyer guides, quick-start guides, and user documentation produced for every tool — clear, organized, and genuinely usable, not afterthoughts.</p>
+        <div class="mini">
+          <div class="row"><div class="k">Problem</div><div class="v">Great tools no one knows how to use.</div></div>
+          <div class="row"><div class="k">Impact</div><div class="v">Documentation that makes products self-serve.</div></div>
+          <div class="row"><div class="k">Built with</div><div class="v">Technical writing, structured guides</div></div>
+        </div>
+      </article>
+
+    </div>
+
+    <p class="shipped">
+      <span>These tools are live —</span>
+      <a href="https://madelara.gumroad.com" target="_blank" rel="noopener">Gumroad ↗</a>
+      <a href="https://payhip.com/Madelara" target="_blank" rel="noopener">Payhip ↗</a>
+      <a href="https://www.raket.ph/madelara" target="_blank" rel="noopener">Raket.ph ↗</a>
+    </p>
+  </div>
+</section>
+
+<section id="research">
+  <div class="wrap">
+    <div class="sec-head"><span class="idx mono">05</span><h2>Research &amp; analysis</h2></div>
+    <p class="sec-intro">Before the systems and tools, there's the work of getting the facts right — verifying, screening, and structuring information so a business can trust what it acts on.</p>
+    <div class="ra-grid reveal">
+
+      <article class="racard">
+        <span class="org">Emerald Intelligence · 2022–Present</span>
+        <h3>Regulatory verification at scale</h3>
+        <div class="rspec">
+          <div class="rrow"><div class="k">Context</div><div class="v">Large databases of regulated US and Canadian businesses had to be trustworthy enough to act on.</div></div>
+          <div class="rrow"><div class="k">What I did</div><div class="v">Verified licenses, websites, and company details against official regulatory sources; flagged duplicates and inconsistencies.</div></div>
+          <div class="rrow"><div class="k">Outcome</div><div class="v out">More accurate, reliable records across large regulated datasets.</div></div>
+        </div>
+        <div class="rskills">Regulatory research · Information verification · Data quality</div>
+      </article>
+
+      <article class="racard">
+        <span class="org">ExDigita · 2021–2024</span>
+        <h3>Compliance &amp; fraud screening</h3>
+        <div class="rspec">
+          <div class="rrow"><div class="k">Context</div><div class="v">Affiliate and content programs were exposed to non-compliant and potentially fraudulent activity.</div></div>
+          <div class="rrow"><div class="k">What I did</div><div class="v">Ran quality-assurance reviews of product and media content, conducted affiliate verification and fraud screening, and kept tracking logs across teams.</div></div>
+          <div class="rrow"><div class="k">Outcome</div><div class="v out">Cleaner, compliant content and dependable cross-team tracking.</div></div>
+        </div>
+        <div class="rskills">Compliance research · Fraud screening · Quality assurance</div>
+      </article>
+
+      <article class="racard">
+        <span class="org">TitanHouse · 2018–2020</span>
+        <h3>Business intelligence research</h3>
+        <div class="rspec">
+          <div class="rrow"><div class="k">Context</div><div class="v">Business development needed accurate intelligence on companies and decision-makers.</div></div>
+          <div class="rrow"><div class="k">What I did</div><div class="v">Conducted executive and company research, verified professional information, and organized large datasets into structured CRM records.</div></div>
+          <div class="rrow"><div class="k">Outcome</div><div class="v out">Reliable intelligence and clean databases that supported outreach.</div></div>
+        </div>
+        <div class="rskills">Business research · Information synthesis · Data organization</div>
+      </article>
+
+      <article class="racard">
+        <span class="org">Woflow · 2021–2023</span>
+        <h3>Data taxonomy &amp; standardization</h3>
+        <div class="rspec">
+          <div class="rrow"><div class="k">Context</div><div class="v">Grocery product data was inconsistent and hard to use across departments and SKUs.</div></div>
+          <div class="rrow"><div class="k">What I did</div><div class="v">Organized products under a structured taxonomy and standardized titles, brands, descriptions, and units; caught classification errors and duplicates.</div></div>
+          <div class="rrow"><div class="k">Outcome</div><div class="v out">Consistent, usable datasets ready for downstream use.</div></div>
+        </div>
+        <div class="rskills">Data structuring · Taxonomy · Standardization</div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="approach">
+  <div class="wrap">
+    <div class="sec-head"><span class="idx mono">06</span><h2>How I work</h2></div>
+    <p class="sec-intro">The same sequence runs through every project — it's why the output holds up after I hand it over.</p>
+    <div class="flow reveal">
+      <div class="step"><span class="n">Step 01</span><h4>Research</h4><p>Understand the goal and verify the facts.</p></div>
+      <div class="step"><span class="n">Step 02</span><h4>Analyze</h4><p>Find the patterns and the real problem.</p></div>
+      <div class="step"><span class="n">Step 03</span><h4>Organize</h4><p>Structure the information cleanly.</p></div>
+      <div class="step"><span class="n">Step 04</span><h4>Design</h4><p>Plan a practical, durable system.</p></div>
+      <div class="step"><span class="n">Step 05</span><h4>Build</h4><p>Develop the tool, sheet, or workflow.</p></div>
+      <div class="step"><span class="n">Step 06</span><h4>Document</h4><p>Write the guide so others can run it.</p></div>
+      <div class="step"><span class="n">Step 07</span><h4>Improve</h4><p>Test, refine, and keep it reliable.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="sec-head"><span class="idx mono">07</span><h2>Experience</h2></div>
+    <div class="xp-grid reveal">
+
+      <article class="xp">
+        <div>
+          <div class="xp-when">2026 — Present</div>
+          <h3>Madelara Systems</h3>
+          <p class="role">Founder &amp; Product Builder</p>
+        </div>
+        <div>
+          <ul>
+            <li>Design, build, and ship a suite of finance and operations tools used by small businesses.</li>
+            <li>Own each product end to end — research, build (Excel and browser), documentation, and launch.</li>
+            <li>Produce buyer guides, quick-start documentation, and structured user manuals for every release.</li>
+          </ul>
+          <p class="impact"><b>Business impact</b>Turned a decade of finance and operations experience into practical, repeatable tools other businesses can adopt.</p>
+        </div>
+      </article>
+
+      <article class="xp">
+        <div>
+          <div class="xp-when">2022 — Present · Remote</div>
+          <h3>Emerald Intelligence, Inc.</h3>
+          <p class="role">Online Researcher</p>
+        </div>
+        <div>
+          <ul>
+            <li>Research regulated US and Canadian businesses, gathering company details from official and online sources.</li>
+            <li>Validate and cross-check records, flagging duplicates and inconsistencies to keep large databases accurate.</li>
+          </ul>
+          <p class="impact"><b>Business impact</b>Higher data accuracy and reliability supporting downstream operational decisions.</p>
+        </div>
+      </article>
+
+      <article class="xp">
+        <div>
+          <div class="xp-when">2021 — 2024 · Remote</div>
+          <h3>ExDigita, Inc.</h3>
+          <p class="role">Researcher &amp; Affiliate Services Staff</p>
+        </div>
+        <div>
+          <ul>
+            <li>Performed quality-assurance reviews of product and media content for accuracy and compliance.</li>
+            <li>Conducted affiliate verification and fraud screening to support regulatory compliance.</li>
+            <li>Maintained structured tracking logs and coordinated updates across multiple teams.</li>
+          </ul>
+          <p class="impact"><b>Business impact</b>Cleaner, compliant content and dependable cross-team tracking.</p>
+        </div>
+      </article>
+
+      <article class="xp">
+        <div>
+          <div class="xp-when">2021 — 2023 · Remote</div>
+          <h3>Woflow</h3>
+          <p class="role">Data Specialist (Part-Time) — Taxonomy &amp; Standardization</p>
+        </div>
+        <div>
+          <ul>
+            <li>Organized grocery product data under a structured taxonomy across departments and SKUs.</li>
+            <li>Standardized product titles, brands, descriptions, and units for consistency.</li>
+            <li>Caught classification errors and duplicates to keep datasets clean and usable.</li>
+          </ul>
+          <p class="impact"><b>Business impact</b>Consistent, standardized product data ready for reliable downstream use.</p>
+        </div>
+      </article>
+
+      <article class="xp">
+        <div>
+          <div class="xp-when">2020 — 2021 · Remote</div>
+          <h3>Advanced Commercial Group, Inc.</h3>
+          <p class="role">Virtual Assistant — Accounting</p>
+        </div>
+        <div>
+          <ul>
+            <li>Processed purchase orders and supplier invoices, verifying transactions against records before payment.</li>
+            <li>Maintained the vendor master database and a quotation tracker from issuance to approval.</li>
+            <li>Tracked project budgets against actuals and reconciled inventory in the ESC accounting system.</li>
+          </ul>
+          <p class="impact"><b>Business impact</b>Audit-ready accounts-payable records and accurate cost monitoring.</p>
+        </div>
+      </article>
+
+      <article class="xp">
+        <div>
+          <div class="xp-when">2018 — 2020 · Remote</div>
+          <h3>TitanHouse</h3>
+          <p class="role">Research Associate</p>
+        </div>
+        <div>
+          <ul>
+            <li>Researched target companies and decision-makers to generate qualified leads for business development.</li>
+            <li>Verified contact and company information for accuracy before handoff to outreach.</li>
+            <li>Organized and structured prospect data into clean CRM records for the sales team.</li>
+          </ul>
+          <p class="impact"><b>Business impact</b>A steady pipeline of accurate, well-organized leads that supported outreach.</p>
+        </div>
+      </article>
+
+      <article class="xp">
+        <div>
+          <div class="xp-when">2017 — 2018</div>
+          <h3>Manuel S. Enverga Memorial School of Arts &amp; Trades</h3>
+          <p class="role">Administrative Officer I — Supply Officer</p>
+        </div>
+        <div>
+          <ul>
+            <li>Managed procurement end to end — supplier canvassing, purchase orders, and documentation in line with government regulations.</li>
+            <li>Administered inventory, supply distribution, and asset records as Property Custodian, safeguarding institutional assets.</li>
+            <li>Built an inventory and asset-tracking database that improved visibility, reporting, and accountability.</li>
+          </ul>
+          <p class="impact"><b>Business impact</b>Stronger stock control and property accountability through a purpose-built tracking system.</p>
+        </div>
+      </article>
+
+      <article class="xp">
+        <div>
+          <div class="xp-when">2010 — 2017</div>
+          <h3>Local Government Unit of Mauban</h3>
+          <p class="role">Accounting Clerk II</p>
+        </div>
+        <div>
+          <ul>
+            <li>Handled core accounting for a government unit — bookkeeping, accounts reconciliation, remittance management, and liquidations.</li>
+            <li>Ran end-to-end payroll, including salaries, deductions, and statutory remittances.</li>
+            <li>Built payroll and remittance databases and automated payslip generation in Excel, improving accuracy and saving time.</li>
+          </ul>
+          <p class="impact"><b>Business impact</b>Faster, audit-ready accounting and payroll — and the origin of the finance systems I build today.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="sec-head"><span class="idx mono">08</span><h2>Education &amp; certifications</h2></div>
+    <div class="edu-grid reveal">
+      <div class="edu-col">
+        <h3>Education</h3>
+        <div class="edu-item"><div class="t">Master of Business Administration</div><div class="s">Southern Luzon State University</div></div>
+        <div class="edu-item"><div class="t">BS Business Administration — Business Computer</div><div class="s">Manuel S. Enverga University Foundation</div></div>
+        <div class="edu-item"><div class="t">Professional Teaching Certification Program</div><div class="s">Pambayang Kolehiyo ng Mauban</div></div>
+      </div>
+      <div class="edu-col">
+        <h3>Certifications</h3>
+        <div class="edu-item"><div class="t">Google Data Analytics Professional Certificate</div><div class="s">Coursera</div></div>
+        <div class="edu-item"><div class="t">National Certificate III in Bookkeeping</div><div class="s">TESDA</div></div>
+        <div class="edu-item"><div class="t">Career Service Professional</div><div class="s">Civil Service Commission</div></div>
+        <div class="edu-item"><div class="t">Licensed Professional Teacher</div><div class="s">Professional Regulation Commission</div></div>
+      </div>
+    </div>
+    <div class="tools reveal">
+      <h3>Tools &amp; systems</h3>
+      <div class="tchips">
+        <span class="tchip">Microsoft Excel</span>
+        <span class="tchip">Google Sheets</span>
+        <span class="tchip">Microsoft Office</span>
+        <span class="tchip">Google Workspace</span>
+        <span class="tchip">SQL (basic)</span>
+        <span class="tchip">Tableau (basic)</span>
+        <span class="tchip">ESC Accounting</span>
+        <span class="tchip">AppFolio</span>
+        <span class="tchip">Asana</span>
+        <span class="tchip">Trello</span>
+        <span class="tchip">Monday.com</span>
+        <span class="tchip">Slack</span>
+        <span class="tchip">Zoom</span>
+        <span class="tchip">Microsoft Teams</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-inner reveal">
+      <div>
+        <p class="eyebrow mono">Contact</p>
+        <h2>Let's work together.</h2>
+        <p>Open to remote roles and collaboration with teams who care about accuracy, structure, and systems that last. Reach out — I'd be glad to hear what you're working on.</p>
+      </div>
+      <div class="contact-list">
+        <a href="mailto:madelarasystems@gmail.com" class="contact-row" aria-label="Email Madelyn"><span>EMAIL · madelarasystems@gmail.com</span><span class="arrow" aria-hidden="true">→</span></a>
+        <a href="https://www.linkedin.com/in/madelyncombalicer" target="_blank" rel="noopener" class="contact-row" aria-label="LinkedIn profile"><span>LINKEDIN · /madelyncombalicer</span><span class="arrow" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <a href="#main" class="brand">Madelyn G. Combalicer</a>
+    <nav class="ftnav" aria-label="Footer">
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <p>Finance &amp; Operations · Research · Systems · Documentation · Remote, worldwide</p>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
